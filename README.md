@@ -12,7 +12,8 @@ This application is deployed using Render.
 
 ## Repository Structure
 
-- 
+- `api.js` → main Node.js API application
+- `package.json` → project configuration and dependencies
 
 ## Branching Strategy
 
@@ -25,4 +26,4 @@ This application is deployed using Render.
 
 | Environment | Branch | Render URL |
 |---|---|---|
-| Production | main | *Add URL here* |
+| Production | main | https://assessment-4-5or5.onrender.com/ |
