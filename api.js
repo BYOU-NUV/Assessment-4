@@ -8,8 +8,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {​
-
-  re.send('It is another API');​
+  res.sen('It is another API');​
 
 });
 
