@@ -4,7 +4,7 @@ const app = express();
 const visiteur = process.env.visiteur || 'Anonyme';
 
 app.get('/', (req, res) => {
-  res.send('It is the stagging development');
+  res.send('It is the stagging development:all good');
 });
 
 const PORT = process.env.PORT || 3000;
