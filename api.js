@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const visiteur = process.env.visiteur || 'Anonyme';
+const fs = require('fs');
 
 app.get('/', (req, res) => {
   res.send('You have well deployed you app: Congrats');
@@ -16,6 +17,32 @@ app.get('/health', (req, res) => {
 
 app.get('/api', (req, res) => {
   res.send('New API');
+});
+
+app.get('/secret-check', (req, res) => {
+
+  try {
+
+    const secret = fs.readFileSync(
+      '/etc/secrets/secret-message.txt',
+      'utf8'
+    );
+
+    res.json({
+      status: "secret loaded",
+      length: secret.length
+    });
+
+  }
+
+  catch {
+
+    res.status(500).json({
+      status: "secret missing"
+    });
+
+  }
+
 });
 
 const PORT = process.env.PORT || 3000;
