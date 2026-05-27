@@ -4,7 +4,14 @@ const app = express();
 const visiteur = process.env.visiteur || 'Anonyme';
 
 app.get('/', (req, res) => {
-  res.send('It is the stagging development');
+  res.send('You have well deployed you app: Congrats');
+});
+
+app.get('/health', (req, res) => {
+  res.json({
+    status: "ok",
+    environment: process.env.APP_ENV || "local"
+  });
 });
 
 const PORT = process.env.PORT || 3000;
