@@ -32,6 +32,19 @@ jobs:
 
       - name: Test API 2
         run: curl -f http://localhost:3000/api
+      
+      - name: Verify Secret
+        run: |
+
+          if [ -z "$MY_SECRET_MESSAGE" ]; then
+            echo "Secret missing"
+            exit 1
+          else
+            echo "GitHub Secret detected"
+          fi
+
+        env: 
+          MY_SECRET_MESSAGE: ${{ secrets.CI_SECRET_MESSAGE }}
         
       - name: Stop server
         run: pkill node
